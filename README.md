@@ -1,0 +1,2 @@
+# penjualan
+Aplikasi Penjualan Sederhana
