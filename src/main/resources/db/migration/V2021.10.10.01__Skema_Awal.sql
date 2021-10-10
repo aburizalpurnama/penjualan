@@ -78,3 +78,13 @@ ALTER TABLE ONLY staging
     ADD CONSTRAINT fkm16k3fyeovfm47jy8rvklr2sp FOREIGN KEY (id_customer) REFERENCES customer(id);
 ALTER TABLE staging
 ADD CONSTRAINT s_unique_code UNIQUE (code);
+
+CREATE table running_number(
+    id character varying (36),
+    prefix character varying (20) not null,
+    last_number bigint
+);
+ALTER TABLE ONLY running_number
+    ADD CONSTRAINT running_number_pkey PRIMARY KEY (id);
+ALTER TABLE running_number
+ADD CONSTRAINT rn_unique_code UNIQUE (prefix);
