@@ -4,11 +4,12 @@ import lombok.Data;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.*;
 
 @Entity @Data
-@SQLDelete(sql = "UPDATE barang SET status_record = 'INACTIVE' where id=?")
+@SQLDelete(sql = "UPDATE customer SET status_record = 'INACTIVE' where id=?")
 @Where(clause = "status_record='ACTIVE'")
 public class Customer extends BaseEntity{
     @NotNull

@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity @Data
-@SQLDelete(sql = "UPDATE barang SET status_record = 'INACTIVE' where id=?")
+@SQLDelete(sql = "UPDATE transaksi SET status_record = 'INACTIVE' where id=?")
 @Where(clause = "status_record='ACTIVE'")
 public class Transaksi extends BaseEntity{
     @NotNull

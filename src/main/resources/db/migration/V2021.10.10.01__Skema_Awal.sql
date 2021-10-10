@@ -12,6 +12,8 @@ CREATE TABLE barang (
 );
 ALTER TABLE ONLY barang
     ADD CONSTRAINT barang_pkey PRIMARY KEY (id);
+ALTER TABLE barang
+ADD CONSTRAINT b_unique_code UNIQUE (code);
 
 CREATE TABLE customer (
     id character varying(36) NOT NULL,
@@ -26,6 +28,8 @@ CREATE TABLE customer (
 );
 ALTER TABLE ONLY customer
     ADD CONSTRAINT customer_pkey PRIMARY KEY (id);
+ALTER TABLE customer
+ADD CONSTRAINT customer_unique_code UNIQUE (code);
 
 CREATE TABLE transaksi (
     id character varying(36) NOT NULL,
@@ -47,6 +51,8 @@ ALTER TABLE ONLY transaksi
     ADD CONSTRAINT fk2aqd3mmk3k33ja6bn8ttxsn4h FOREIGN KEY (id_customer) REFERENCES customer(id);
 ALTER TABLE ONLY transaksi
     ADD CONSTRAINT fk5sx80v9epd17imm1k0xqwgo1y FOREIGN KEY (id_barang) REFERENCES barang(id);
+ALTER TABLE transaksi
+ADD CONSTRAINT t_unique_code UNIQUE (code);
 
 CREATE TABLE staging (
     id character varying(36) NOT NULL,
@@ -70,3 +76,5 @@ ALTER TABLE ONLY staging
     ADD CONSTRAINT fkfaxlu3ivo2rts6o6p9geh95oe FOREIGN KEY (id_transaksi) REFERENCES transaksi(id);
 ALTER TABLE ONLY staging
     ADD CONSTRAINT fkm16k3fyeovfm47jy8rvklr2sp FOREIGN KEY (id_customer) REFERENCES customer(id);
+ALTER TABLE staging
+ADD CONSTRAINT s_unique_code UNIQUE (code);

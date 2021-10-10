@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 @Data
-//@EntityListeners(AuditingEntityListener.class)
+@EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
     @Id
     @GeneratedValue(generator = "system-uuid")
@@ -37,6 +37,5 @@ public class BaseEntity {
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    @Size(max = 10)
     private StatusRecord statusRecord = StatusRecord.ACTIVE;
 }
